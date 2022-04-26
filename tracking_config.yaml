@@ -2,4 +2,4 @@ Object_detection:
   model: "yolox" #yolov5,nanodet,yolov4,yolox
 
 Object_tracking:
-  model: "deepsort" #norfair,bytetrack,motpy,sort
+  model: "bytetrack" #norfair,bytetrack,motpy,sort
