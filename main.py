@@ -99,7 +99,7 @@ if __name__ == "__main__":
     obj_dt = config_tracking["Object_detection"]["model"]
     obj_tk = config_tracking["Object_tracking"]["model"]
 
-    video = cv2.VideoCapture("videos/palace.mp4")
+    video = cv2.VideoCapture("videos/test2.mp4")
 
     if(obj_dt == "yolov5"):
         from Detection.yolov5.detect import Yolov5
