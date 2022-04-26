@@ -93,7 +93,7 @@ def euclidean_distance(detection, tracked_object):
 
 if __name__ == "__main__":
     with open("tracking_config.yaml") as fp:
-        config_tracking = yaml.load(fp)
+        config_tracking = yaml.safe_load(fp)
     deep = False
 
     obj_dt = config_tracking["Object_detection"]["model"]
