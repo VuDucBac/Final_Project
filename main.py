@@ -88,6 +88,7 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
             VisTracking(frame.copy(), data_track, labels=detector.names)
             ###
             tracked_frame = np.asarray(frame)
+            tracked_frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
             result.write (tracked_frame)
             ###
             if cv2.waitKey(1) & 0xFF == ord('q'):
