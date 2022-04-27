@@ -69,7 +69,7 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
     '''
     frame_id = 0
     ###
-    codec = cv2.VideoWriter_fourcc(*'MPEG')
+    codec = cv2.VideoWriter_fourcc(*'mp4v')
     result = cv2.VideoWriter('output.mp4',codec,30,(1000,1000))
     ###
     while True:
