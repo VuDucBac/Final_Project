@@ -68,6 +68,10 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
     output track : [left,top, right,bottom,track_id,cls]
     '''
     frame_id = 0
+    ###
+    codec = cv2.VideoWriter_fourcc(*'MPEG')
+    result = cv2.VideoWriter('output.mp4',codec,30,(1000,1000))
+    ###
     while True:
         _, frame = video.read()
         if(frame is None):
@@ -82,9 +86,17 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
                 data_track = tracker.update(box_detects, scores, classes)
 
             VisTracking(frame.copy(), data_track, labels=detector.names)
+            ###
+            tracked_frame = np.asarray(frame)
+            result.write (tracked_frame)
+            ###
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
         frame_id = (frame_id+1) % skip_frame
+
+    
+
+    
 
 
 def euclidean_distance(detection, tracked_object):
@@ -152,3 +164,5 @@ if __name__ == "__main__":
         deep = True
 
     ProcessTracking(video, detector, tracker, deep)
+    
+
