@@ -45,7 +45,7 @@ def VisTracking(img, data_track, labels):
         cv2.putText(
             img, text, (x0, y0 + txt_size[1]), font, 0.4, txt_color, thickness=1)
 
-    cv2.imshow("image", img)
+    #cv2.imshow("image", img)
 
 
 
