@@ -70,7 +70,7 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
     frame_id = 0
     ###
     codec = cv2.VideoWriter_fourcc(*'mp4v')
-    result = cv2.VideoWriter('output.mp4',codec,30,(1000,1000))
+    result = cv2.VideoWriter('output.mp4',codec,10,(1000,1000))
     ###
     while True:
         _, frame = video.read()
@@ -85,10 +85,10 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
             else:
                 data_track = tracker.update(box_detects, scores, classes)
 
-            VisTracking(frame.copy(), data_track, labels=detector.names)
+            Processed_frame = VisTracking(frame.copy(), data_track, labels=detector.names)
             ###
-            tracked_frame = np.asarray(frame)
-            tracked_frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            #tracked_frame = np.asarray(frame)
+            tracked_frame = cv2.cvtColor(Processed_frame, cv2.COLOR_RGB2BGR)
             result.write (tracked_frame)
             ###
             if cv2.waitKey(1) & 0xFF == ord('q'):
