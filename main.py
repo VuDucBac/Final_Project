@@ -54,7 +54,10 @@ def Detect(detector, frame):
     input : detector, cv2 frame
     output : numpy boxes (left,top, right,bottom) , numpy scores
     '''
-    box_detects, classes, confs = detector.detect(frame.copy())
+    #box_detects, classes, confs = detector.detect(frame.copy())
+    box_detects = detector.detect(frame.copy())[0]
+    classes = detector.detect(frame.copy())[1]
+    confs = detector.detect(frame.copy())[2]
     return np.array(box_detects).astype(int), np.array(confs), np.array(classes)
 
 
