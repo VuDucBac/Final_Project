@@ -75,7 +75,7 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
     #cv2.namedWindow("output", cv2.WINDOW_NORMAL)
     #_, frame = video.read()
     #height,width = frame.shape[:2]
-    vid = cv2.VideoCapture("video/Traffic.mp4")
+    vid = cv2.VideoCapture("video/Traffic_cam.mp4")
     width = int(vid.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT))
     
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     obj_dt = config_tracking["Object_detection"]["model"]
     obj_tk = config_tracking["Object_tracking"]["model"]
 
-    video = cv2.VideoCapture("video/Traffic.mp4")
+    video = cv2.VideoCapture("video/Traffic_cam.mp4")
 
     if(obj_dt == "yolov5"):
         from Detection.yolov5.detect import Yolov5
