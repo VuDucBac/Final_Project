@@ -8,11 +8,15 @@ sys.path.insert(0, 'Detection')
 sys.path.insert(0, 'Tracking')
 from vehicle_counting import Vehicle_counting
 
-def Setting (img, data_track):
-    for i in range(len(data_track)):
-        box = data_track[i][:4]
-        track_id = int(data_track[i][4])
-        cls_id = int(data_track[i][5])
+
+
+class Setting: 
+        
+    def line_setting (self ,img, data_track):
+        for i in range(len(data_track)):
+            box = data_track[i][:4]
+            track_id = int(data_track[i][4])
+            cls_id = int(data_track[i][5])
         
         
 
