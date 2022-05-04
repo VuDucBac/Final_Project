@@ -9,7 +9,7 @@ sys.path.insert(0, 'Tracking')
 from vehicle_counting import Vehicle_counting
 
 
-
+"""
 class Setting: 
         
     def line_setting (self ,img, data_track):
@@ -17,11 +17,15 @@ class Setting:
             box = data_track[i][:4]
             track_id = int(data_track[i][4])
             cls_id = int(data_track[i][5])
+"""        
         
-        
 
-
-
+def tlbr_to_tlwh (tlbr):
+    tlwh[0] = tlbr [0]
+    tlwh[1] = tlbr [1]
+    tlwh[2] = tlbr [2] - tlbr [0]
+    tlwh[1] = tlbr [3] - tlbr [1]
+    return tlwh
 def VisTracking(img, data_track, labels):
     '''
     input : data_track [[left,top, right,bottom,id_track]]
@@ -58,7 +62,8 @@ def VisTracking(img, data_track, labels):
         )
         cv2.putText(
             img, text, (x0, y0 + txt_size[1]), font, 0.4, txt_color, thickness=1)
-
+        tlwh = tlbr_to_tlwh(box)
+        Vehicle_counting (tlwh, track_id)
     #cv2.imshow("image", img)
 
 
@@ -112,6 +117,7 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
                 data_track = tracker.update(box_detects, scores, classes)
 
             Processed_frame = VisTracking(frame.copy(), data_track, labels=detector.names)
+            Vehicle_counting.drawline(Processed_frame)
             ###
             #tracked_frame = np.asarray(frame)
             #tracked_frame = cv2.cvtColor(Processed_frame, cv2.COLOR_RGB2BGR)
