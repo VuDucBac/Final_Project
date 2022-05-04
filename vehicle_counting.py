@@ -44,8 +44,8 @@ class Vehicle_counting:
         self.up_count = []
         self.down_count = []
 
-        #self.line = [[(700, 100), (1200, 400)],[(1200, 950), (1900, 850)],[(200,400),(350,900)]]
-        self.line = []
+        self.line = [[(700, 100), (1200, 400)],[(1200, 950), (1900, 850)],[(200,400),(350,900)]]
+        #self.line = []
         self.line_angle = 0
 
         self.click = 0
