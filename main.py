@@ -110,6 +110,7 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
         if(frame_id % skip_frame == 0):
 
             box_detects, scores, classes = Detect(detector, frame)
+            print (classes)
             if deep:
                 data_track = tracker.update(
                     box_detects, scores, classes, frame.copy())
@@ -118,6 +119,8 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
 
             Processed_frame = VisTracking(frame.copy(), data_track, labels=detector.names)
             Vehicle_counting.drawline(Processed_frame)
+            print ("Total couting: {0}".format (Vehicle_counting.total_couter))
+            
             ###
             #tracked_frame = np.asarray(frame)
             #tracked_frame = cv2.cvtColor(Processed_frame, cv2.COLOR_RGB2BGR)
