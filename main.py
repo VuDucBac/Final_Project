@@ -67,9 +67,8 @@ def VisTracking(img, data_track, labels):
         object_counter = Vehicle_counting(tlwh = 0, tid = 0)
         tlwh = tlbr_to_tlwh(box)
         object_counter.counting (tlwh, track_id)
-        Vehicle_counting.drawline(img)
-        print ("Total couting: {0}".format (object_counter.total_couter))
-        Vehicle_counting.draw_line(Processed_frame)
+        object_counter.drawline(img)
+        print ("Total couting: {0}".format (object_counter.total_counter))
     #cv2.imshow("image", img)
 
 
