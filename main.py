@@ -125,7 +125,7 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
 
             Processed_frame = VisTracking(frame.copy(), data_track, labels=detector.names)
             #Vehicle_counting.draw_line(Processed_frame)
-            print ("Total couting: {0}".format (Vehicle_counting.total_couter))
+            #print ("Total couting: {0}".format (Vehicle_counting.total_couter))
             
             ###
             #tracked_frame = np.asarray(frame)
