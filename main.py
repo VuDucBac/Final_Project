@@ -21,6 +21,7 @@ class Setting:
         
 
 def tlbr_to_tlwh (tlbr):
+    tlwh = [0]*4
     tlwh[0] = tlbr [0]
     tlwh[1] = tlbr [1]
     tlwh[2] = tlbr [2] - tlbr [0]
