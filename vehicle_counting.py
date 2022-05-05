@@ -252,9 +252,13 @@ class Vehicle_counting:
         if tid not in self.already_track_id:
             self.memory[tid] = deque(maxlen=2)
             self.already_track_id.append(tid)
-            self.memory[tid].append(midpoint)
-
+        self.memory[tid].append(midpoint)
         previous_midpoint = self.memory[tid][0]
+        print (tid)
+        print(self.memory[tid])
+        print (midpoint)
+        print (previous_midpoint)
+
            
         for i in range(len(self.line)) :
             #print ("Line {0}: {1}, {2}".format (i,self.line[i][0], self.line[i][1]))
