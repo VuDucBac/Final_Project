@@ -257,7 +257,8 @@ class Vehicle_counting:
         previous_midpoint = self.memory[tid][0]
            
         for i in range(len(self.line)) :
-
+            #print ("Line {0}: {1}, {2}".format (i,self.line[i][0], self.line[i][1]))
+            #print ("Object {0}: {1}, {2}".format(tid, midpoint, previous_midpoint))
             if self._intersect(midpoint, previous_midpoint, self.line[i][0], self.line[i][1]) and tid not in self.already_counted:
 
                 self.total_counter[i] +=1
