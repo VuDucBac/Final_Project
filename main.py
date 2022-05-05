@@ -69,6 +69,7 @@ def VisTracking(img, data_track, labels):
         object_counter.counting (tlwh, track_id)
         Vehicle_counting.drawline(img)
         print ("Total couting: {0}".format (object_counter.total_couter))
+        Vehicle_counting.draw_line(Processed_frame)
     #cv2.imshow("image", img)
 
 
@@ -123,7 +124,7 @@ def ProcessTracking(video, detector, tracker, deep=False, skip_frame=1):
                 data_track = tracker.update(box_detects, scores, classes)
 
             Processed_frame = VisTracking(frame.copy(), data_track, labels=detector.names)
-            Vehicle_counting.drawline(Processed_frame)
+            #Vehicle_counting.draw_line(Processed_frame)
             print ("Total couting: {0}".format (Vehicle_counting.total_couter))
             
             ###
